@@ -1,20 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const colectionSchema = new Schema({
-    username: {
+const accountSchema = new Schema({
+    name: {
+        type: String,
+        requiered: true
+    },
+    url: {
         type: String,
         requiered: true
     },
     password: {
         type: String,
         requiered: true
-    },
-    repeat_password: {
-        type: String,
-        requiered: true
     }
+    
 }, {timestamps: true });
 
-const Colection = mongoose.model('Colection', colectionSchema)
-module.exports = Colection;
+const Account = mongoose.model('Account', accountSchema)
+module.exports = Account;
