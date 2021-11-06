@@ -30,8 +30,8 @@ function Register() {
       navigate("/dashboard")
   };
   return (
-    <div class="container">
-      <ul class="listamain">
+    <div className="container">
+      <ul className="listamain">
         <li>
           <h1>Register:</h1>
         </li>

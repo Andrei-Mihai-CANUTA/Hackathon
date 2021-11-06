@@ -1,9 +1,12 @@
 import React from "react";
 import "./form.css";
+import { useNavigate } from "react-router-dom";
 function Login() {
+  const navigate = useNavigate();
+  
   return (
-    <div class = "container">
-    <ul class = "listamain">
+    <div className = "container">
+    <ul className = "listamain">
         <li><h1>Login:</h1></li>
         <li><input type = "text" name = "Username" placeholder = "Username"/></li>
         <li><input type = "password" name = "Password" placeholder = "*********"/></li>

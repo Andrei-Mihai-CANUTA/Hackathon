@@ -10,7 +10,7 @@ body{
 
 }
 
-.container{
+.container{ 
     background-color: #ffffff;
     width: 300px;
     height: 300px;
@@ -21,6 +21,7 @@ body{
 }
 
 ul.listamain{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     list-style-type: none;
     text-align: center; 
 }
@@ -41,6 +42,7 @@ ul.listamain li input{
 ul.listamain li input[type = "button"]{
     background-color: #00004d;
     color: #fff;
+    cursor: pointer;
 }
 
 ul.listamain li:nth-child(5){
@@ -61,6 +63,36 @@ ul.listamain li:nth-child(1){
     margin: auto;
 }
 
-#AddAcc{
-    text-decoration: none;
+ul.listamain li input[type = "submit"]{
+    background-color: #00004d;
+    color: #fff;
+    cursor: pointer;
 }
+
+.Boxes{
+    width: 90%;
+    padding: 10px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    
+}
+
+.box{
+    width: 300px;
+    height: 330px;
+    background-color: beige;
+    margin: 0px 10px;
+    transition: 1s;
+    padding: 0px 40px;
+    border-radius: 300px;
+}
+
+.box:hover{
+    transform: scale(1.2);
+    background: #b4b9b9;
+    box-shadow: 0px 0px 15px 0px rgb(7, 34, 68);
+    
+}
+
