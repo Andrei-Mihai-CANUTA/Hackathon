@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const colectionSchema = new Schema({
+const userSchema = new Schema({
     username: {
         type: String,
         requiered: true
@@ -9,12 +9,9 @@ const colectionSchema = new Schema({
     password: {
         type: String,
         requiered: true
-    },
-    repeat_password: {
-        type: String,
-        requiered: true
     }
+
 }, {timestamps: true });
 
-const Colection = mongoose.model('Colection', colectionSchema)
-module.exports = Colection;
+const User = mongoose.model('User', userSchema)
+module.exports = User;
