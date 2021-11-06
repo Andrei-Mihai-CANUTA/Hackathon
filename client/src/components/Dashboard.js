@@ -1,5 +1,6 @@
-import react from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import Account from "./Account";
 
 function Dashbaord() {
   const navigate = useNavigate();
@@ -7,14 +8,28 @@ function Dashbaord() {
   const handleClick = () => {
     navigate("/generate");
   };
+  let accounts = [
+    {
+      id: 1,
+      name: "account1",
+      url: "https://google.com",
+      password: "sjslxh1ojc0",
+    },
+  ];
   return (
     <div>
       Dashbord:
       <p>Accounts</p>
       <ul>
-        <li>Account 1</li>
-        <li>Account 2</li>
-        <li>Account 3</li>
+        {accounts.map((account) => {
+          return (
+            <Account
+              name={account.name}
+              password={account.password}
+              idx={account.id}
+            />
+          );
+        })}
       </ul>
       <button onClick={() => handleClick()}>Add account</button>
     </div>
