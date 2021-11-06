@@ -5,11 +5,11 @@ function Register() {
   const [password, setPassword] = useState("");
   const handleSubmit = () => {
     const data = {
-      name: name,
+      username: name,
       password: password,
     };
 
-    fetch("http://localhost:4000/addUser", {
+    fetch("http://localhost:4000/register", {
       method: "POST",
       // mode: "cors",
       headers: {
