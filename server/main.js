@@ -1,8 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const Colection = require('./models/userColection');
-const User = require('./models/users');
+const Colection = require('./models/userColection.js');
+const User = require('./models/users.js');
 
 
 
