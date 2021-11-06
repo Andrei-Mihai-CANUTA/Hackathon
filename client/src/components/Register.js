@@ -1,5 +1,5 @@
-import react from "react";
-import "./form.css"
+import React from "react";
+import "./form.css";
 function Register() {
   return (
     <div class = "container">
