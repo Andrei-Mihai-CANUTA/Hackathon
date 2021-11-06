@@ -50,3 +50,17 @@ ul.listamain li:nth-child(5){
 ul.listamain li:nth-child(1){
     color: #00004d;
 }
+
+.container2{
+    background-color: #ffffff;
+    width: 300px;
+    height: 340px;
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 0 #000;
+    margin: auto;
+}
+
+#AddAcc{
+    text-decoration: none;
+}

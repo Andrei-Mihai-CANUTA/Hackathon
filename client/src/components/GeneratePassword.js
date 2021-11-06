@@ -1,10 +1,12 @@
 import react, { useState } from "react";
 import crypto from "crypto";
+import { useNavigate } from "react-router-dom";
 
 export default function GeneratePassword() {
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
   const [passwordLength, setPasswordLength] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,55 +19,68 @@ export default function GeneratePassword() {
       url: url,
       password: passwordGenerated,
     };
-    fetch("http://localhost:4000/addAccount", {
-      method: "POST",
-      // mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    // fetch("http://localhost:4000/addAccount", {
+    //   method: "POST",
+    //   // mode: "cors",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log("Success:", data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
+      navigate("/dashboard")
   };
   return (
-    <div>
+    <div className = "container2">
+      <ul className = "listamain">
+      <li><h1>Create new account:</h1></li>
       <form
         onSubmit={(e) => {
           handleSubmit(e);
         }}
       >
-        <label htmlFor="url">Add site name</label>
+       <li> <label htmlFor="url"></label>
         <input
           type="text"
           name="name"
+          placeholder = "Add site name"
           onChange={(e) => {
             setName(e.target.value);
           }}
-        />
-        <label htmlFor="url">Add site url</label>
+        /></li>
+       <li><label htmlFor="url"></label>
         <input
           type="text"
           name="url"
+          placeholder = "Add site url"
           onChange={(e) => {
             setUrl(e.target.value);
           }}
-        />
-        <label>Password length </label>
+        /></li>
+        <li><label></label>
         <input
           type="text"
+          placeholder = "Password length"
           value={passwordLength}
           onChange={(e) => {
             setPasswordLength(e.target.value);
           }}
-        />
-        <button type="submit">Add Account</button>
-      </form>
+        /></li>
+        <li><input
+        type="Submit" 
+        name ="Submit"
+        value = "Add Account"/>
+        
+        </li>
+       </form>
+       <li><h6><a href = "http://localhost:3000/dashboard">Go back</a></h6></li>
+      </ul>
     </div>
   );
 }
