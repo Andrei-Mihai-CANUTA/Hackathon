@@ -8,6 +8,7 @@ const User = require('./models/users.js');
 
 const app = express();
 const cors = require("cors");
+const accountSchema = require('./models/users.js');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -39,12 +40,12 @@ app.post('/register', (req, res) => {
 
 app.post('/login', (req, res) => {
 
-    const users = new User({
+    const user = new User({
         username: req.body.username,
         password: req.body.password,
     });
-
-    colection.save()
+    
+    user.save()
         .then((result) => {
             res.send(result)
         })
@@ -55,4 +56,37 @@ app.post('/login', (req, res) => {
 })
 
 
+
+const account = {
+    name: 'google',
+    url: 'www.google.com',
+    password: '123123',
+}
     
+app.post('/createAccount', (req, res) => {
+    const name = req.body.username
+
+    const account1 = {
+        name: req.body.name,
+        url: req.body.url,
+        password: req.body.password,
+        }
+
+    const user = User.findOne({name: name}, function(err, user){
+        if (err) console.log(err);
+        user.account.push(account1);
+        user.save();
+
+    });
+        res.send("createdAccount")
+    })
+
+app.get('/getAccounts', (req, res) => {
+    const name = req.body.username
+    const user = User.findOne({name: name}, function(err, user){
+        if (err) console.log(err);
+        res.json({accounts: user.account});
+    })
+    
+
+})

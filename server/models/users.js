@@ -1,6 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Account = require('./Account.js');
+
+const accountSchema = new Schema({
+    name: {
+        type: String,
+        requiered: true
+    },
+    url: {
+        type: String,
+        requiered: true
+    },
+    password: {
+        type: String,
+        requiered: true
+    }
+    
+}, {timestamps: true });
 
 const userSchema = new Schema({
     username: {
@@ -11,12 +26,13 @@ const userSchema = new Schema({
         type: String,
         requiered: true
     },
-    account: [{
-        type: Account
-    }]
-
+    account: {
+        type:[],
+        default:[]
+    }
 
 }, {timestamps: true });
+
 
 const User = mongoose.model('User', userSchema)
 module.exports = User;
