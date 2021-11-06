@@ -11,7 +11,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  // get user name and password
   console.log(req.body);
   console.log(req.body.username);
   console.log(req.body.password);
@@ -20,11 +19,18 @@ app.post("/login", (req, res) => {
 
 app.post("/register", (req, res) => {
 
+  console.log(req.body);
   console.log(req.body.username);
   console.log(req.body.password);
   console.log(req.body.repeat_password);
-  res.send("User logged in ");
-  
+
+  if(req.body.password == req.body.repeat_password){
+    res.send("User registered! ");
+}
+  else{
+    res.send("No match between passwords! ");
+  }
+
 });
 
 app.listen(port, () => {
