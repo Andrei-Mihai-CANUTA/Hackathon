@@ -11,7 +11,6 @@ function Register() {
       password: password,
     };
 
-<<<<<<< HEAD
     fetch("http://localhost:4000/register", {
       method: "POST",
       // mode: "cors",
@@ -27,25 +26,6 @@ function Register() {
       .catch((error) => {
         console.error("Error:", error);
       });
-=======
-
-    // fetch("http://localhost:4000/addUser", {
-    //   method: "POST",
-    //   // mode: "cors",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log("Success:", data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
-      navigate("/dashboard")
->>>>>>> d87a5a4de9af31f44ef02e45992984e18768a067
   };
   return (
     <div class="container">
