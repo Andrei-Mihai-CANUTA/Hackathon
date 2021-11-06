@@ -5,6 +5,7 @@ const port = 4000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -12,14 +13,18 @@ app.get("/", (req, res) => {
 app.post("/login", (req, res) => {
   // get user name and password
   console.log(req.body);
-  console.log(req.body.name);
+  console.log(req.body.username);
   console.log(req.body.password);
   res.send("User logged in ");
 });
 
-app.get("/register", (req, res) => {
-  // send data to database
-  // validation
+app.post("/register", (req, res) => {
+
+  console.log(req.body.username);
+  console.log(req.body.password);
+  console.log(req.body.repeat_password);
+  res.send("User logged in ");
+  
 });
 
 app.listen(port, () => {
