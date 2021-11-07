@@ -1,14 +1,13 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const Colection = require('./models/userColection.js');
 const User = require('./models/users.js');
 
 
 
 const app = express();
 const cors = require("cors");
-const accountSchema = require('./models/users.js');
+//const accountSchema = require('./models/users.js');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,46 +21,44 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
 
 app.post('/register', (req, res) => {
 
-    const colection = new Colection({
-        username: req.body.username,
-        password: req.body.password,
-        repeat_password: req.body.repeat_password
-    });
+    if(req.body.password == req.body.repeat_password){
 
-    colection.save()
-        .then((result) => {
-            res.send(result)
-        })
-        .catch((err) => {
-            console.log(err)
+        const user = new User({
+            username: req.body.username,
+            password: req.body.password,
         });
-        
-})
+
+        user.save()
+            .then((result) => {
+                res.send("User registered!")
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+
+        } else {
+            res.send("No match between passwords");
+        }
+            
+    })
 
 app.post('/login', (req, res) => {
 
-    const user = new User({
-        username: req.body.username,
-        password: req.body.password,
-    });
     
-    user.save()
-        .then((result) => {
-            res.send(result)
-        })
-        .catch((err) => {
-            console.log(err)
-        });
+    const name = req.body.username
+    const user = User.findOne({username: name}, function(err, user1){
+        if (err) console.log(err);
+
+        if((user1) && (user1.password === req.body.password)){
+            res.json({account: user1.account});
+        } else {
+            res.send("Login failed!");
+        }
+    })
         
 })
 
 
-
-const account = {
-    name: 'google',
-    url: 'www.google.com',
-    password: '123123',
-}
     
 app.post('/createAccount', (req, res) => {
     const name = req.body.username
@@ -72,7 +69,7 @@ app.post('/createAccount', (req, res) => {
         password: req.body.password,
         }
 
-    const user = User.findOne({name: name}, function(err, user){
+    const user = User.findOne({username: name}, function(err, user){
         if (err) console.log(err);
         user.account.push(account1);
         user.save();
@@ -81,11 +78,11 @@ app.post('/createAccount', (req, res) => {
         res.send("createdAccount")
     })
 
-app.get('/getAccounts', (req, res) => {
-    const name = req.body.username
-    const user = User.findOne({name: name}, function(err, user){
+app.get('/getAccounts/:username', (req, res) => {
+    const name = req.params.username
+    const user = User.findOne({username: name}, function(err, user1){
         if (err) console.log(err);
-        res.json({accounts: user.account});
+        res.json({account: user1.account});
     })
     
 
