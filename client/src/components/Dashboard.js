@@ -46,17 +46,6 @@ function Dashbaord() {
           );
         })}
       </ul>
-<<<<<<< HEAD
-      <button className = "button2" onClick={() => handleClick()}>Add account</button>
-      
-      <div className = "Boxes">
-
-          <div className = "box"></div>
-          <div className = "box"></div>
-          <div className = "box"></div>
-          <div className = "box"></div>
-          
-=======
       <button onClick={() => handleClick()}>Add account</button>
 
       <div id="main">
@@ -74,7 +63,6 @@ function Dashbaord() {
         <div className="box"></div>
         <div className="box"></div>
         <div className="box"></div>
->>>>>>> 0fd0384c372fbf7f75133baac7fbd6a642d4f28e
       </div>
     </div>
   );

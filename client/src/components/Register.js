@@ -28,6 +28,7 @@ function Register() {
       .catch((error) => {
         console.error("Error:", error);
       });
+    navigate("/dashboard");
   };
   return (
     <div className="container">

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     const data = {
@@ -26,6 +27,7 @@ function Login() {
       .catch((error) => {
         console.error("Error:", error);
       });
+    navigate("/dashboard");
   };
   return (
     <div class="container">
