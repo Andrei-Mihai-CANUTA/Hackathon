@@ -96,3 +96,14 @@ ul.listamain li input[type = "submit"]{
     
 }
 
+.button2{
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    padding: 5px 15px 5px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 20px;
+    color: #fff;
+}

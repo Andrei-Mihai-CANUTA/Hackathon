@@ -22,7 +22,7 @@ function Dashbaord() {
   ];
   return (
     <div>
-      {/* <p>Accounts</p>
+      <p>Accounts</p>
       <ul>
         {accounts.map((account) => {
           return (
@@ -33,17 +33,9 @@ function Dashbaord() {
             />
           );
         })}
-      </ul> */}
-      {/* <button onClick={() => handleClick()}>Add account</button> */}
-
-      <div id = "main">
-        <nav>
-          <ul>
-            <li><a href = "http://localhost:3000/generate">Add Account</a></li>
-          </ul>
-        </nav>
-      </div>
-
+      </ul>
+      <button className = "button2" onClick={() => handleClick()}>Add account</button>
+      
       <div className = "Boxes">
 
           <div className = "box"></div>
