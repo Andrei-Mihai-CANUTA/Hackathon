@@ -1,10 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Account from "./Account";
-
-<head>
-  <link rel = "stylesheet" type = "text/css" href = "css/style.css"></link>
-</head>
 
 function Dashbaord() {
   const navigate = useNavigate();
@@ -12,6 +8,22 @@ function Dashbaord() {
   const handleClick = () => {
     navigate("/generate");
   };
+  useEffect(() => {
+    fetch("http://localhost:4000/getAccounts" + localStorage.getItem("name"), {
+      method: "GET",
+      // mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
   let accounts = [
     {
       id: 1,
@@ -22,7 +34,7 @@ function Dashbaord() {
   ];
   return (
     <div>
-      {/* <p>Accounts</p>
+      <p>Accounts</p>
       <ul>
         {accounts.map((account) => {
           return (
@@ -33,27 +45,25 @@ function Dashbaord() {
             />
           );
         })}
-      </ul> */}
-      {/* <button onClick={() => handleClick()}>Add account</button> */}
+      </ul>
+      <button onClick={() => handleClick()}>Add account</button>
 
-      <div id = "main">
+      <div id="main">
         <nav>
           <ul>
-            <li><a href = "http://localhost:3000/generate">Add Account</a></li>
+            <li>
+              <a href="http://localhost:3000/generate">Add Account</a>
+            </li>
           </ul>
         </nav>
       </div>
 
-      <div className = "Boxes">
-
-          <div className = "box"></div>
-          <div className = "box"></div>
-          <div className = "box"></div>
-          <div className = "box"></div>
-          
+      <div className="Boxes">
+        <div className="box"></div>
+        <div className="box"></div>
+        <div className="box"></div>
+        <div className="box"></div>
       </div>
-
-
     </div>
   );
 }
