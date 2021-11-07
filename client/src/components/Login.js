@@ -10,6 +10,7 @@ function Login() {
       username: name,
       password: password,
     };
+    localStorage.setItem("name", name);
     fetch("http://localhost:4000/login", {
       method: "POST",
       // mode: "cors",

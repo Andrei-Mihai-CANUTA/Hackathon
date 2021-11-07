@@ -12,7 +12,7 @@ function Register() {
       password: password,
       repeat_password: repeat_password,
     };
-
+    localStorage.setItem("name");
     fetch("http://localhost:4000/register", {
       method: "POST",
       // mode: "cors",
@@ -37,7 +37,7 @@ function Register() {
         </li>
         <li>
           <input
-          value = {name}
+            value={name}
             type="text"
             name="Username"
             placeholder="Username:"
@@ -48,7 +48,7 @@ function Register() {
         </li>
         <li>
           <input
-          value = {password}
+            value={password}
             type="password"
             name="Password"
             placeholder="Password"
@@ -59,7 +59,7 @@ function Register() {
         </li>
         <li>
           <input
-          value = {repeat_password}
+            value={repeat_password}
             type="password"
             name="Password"
             placeholder="Repeat password"
