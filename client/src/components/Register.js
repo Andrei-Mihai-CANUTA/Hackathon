@@ -6,13 +6,14 @@ function Register() {
   const [password, setPassword] = useState("");
   const [repeat_password, setRepeatPassword] = useState("");
   const navigate = useNavigate();
+
   const handleSubmit = () => {
     const data = {
       username: name,
       password: password,
       repeat_password: repeat_password,
     };
-    localStorage.setItem("name");
+    localStorage.setItem("name", name);
     fetch("http://localhost:4000/register", {
       method: "POST",
       // mode: "cors",
