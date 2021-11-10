@@ -58,12 +58,12 @@ function Dashbaord() {
         </nav>
       </div>
 
-      <div className="Boxes">
+      {/* <div className="Boxes">
         <div className="box"></div>
         <div className="box"></div>
         <div className="box"></div>
         <div className="box"></div>
-      </div>
+      </div> */}
     </div>
   );
 }

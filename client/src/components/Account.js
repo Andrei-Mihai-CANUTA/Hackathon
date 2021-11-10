@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
+import "./form.css";
 export default function Account(props) {
   const [show, setShow] = useState(false);
   return (
-    <div>
+    <div className="Boxes">
       <p
+        className="box"
         onClick={() => {
           setShow(!show);
         }}
